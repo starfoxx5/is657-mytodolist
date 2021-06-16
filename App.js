@@ -7,6 +7,7 @@ import {
   TextInput,
   TouchableOpacity,
   Keyboard,
+  ScrollView,
 } from "react-native";
 import styles from "./components/styles";
 import Task from "./components/Task";
@@ -28,22 +29,27 @@ export default function App() {
   return (
     <View style={styles.container}>
       {/* Today's Tasks */}
-      <View style={styles.tasksWrapper}>
-        <Text style={styles.sectionTitle}>My Tasks For Today</Text>
+      <ScrollView>
+        <View style={styles.tasksWrapper}>
+          <Text style={styles.sectionTitle}>My Tasks For Today</Text>
 
-        <View style={styles.items}>
-          {/* This is where the tasks will go */}
-          {taskItems.map((item, index) => {
-            return (
-              <TouchableOpacity key={index} onPress={() => completeTask(index)}>
-                <Task text={item} />
-              </TouchableOpacity>
-            );
-          })}
-          {/* <Task text={"Task 1"} />
+          <View style={styles.items}>
+            {/* This is where the tasks will go */}
+            {taskItems.map((item, index) => {
+              return (
+                <TouchableOpacity
+                  key={index}
+                  onPress={() => completeTask(index)}
+                >
+                  <Task text={item} />
+                </TouchableOpacity>
+              );
+            })}
+            {/* <Task text={"Task 1"} />
           <Task text={"Task 2"} /> */}
+          </View>
         </View>
-      </View>
+      </ScrollView>
       {/*Write a Task */}
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
