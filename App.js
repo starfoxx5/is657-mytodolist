@@ -50,23 +50,25 @@ export default function App() {
           </View>
         </View>
       </ScrollView>
-      {/*Write a Task */}
-      <KeyboardAvoidingView
-        behavior={Platform.OS === "ios" ? "padding" : "height"}
-        style={styles.writeTaskWrapper}
-      >
-        <TextInput
-          style={styles.input}
-          placeholder={"Write A Task"}
-          value={task}
-          onChangeText={(text) => setTask(text)}
-        />
-        <TouchableOpacity onPress={() => handleAddTask()}>
-          <View style={styles.addWrapper}>
-            <Text style={styles.addText}>+</Text>
-          </View>
-        </TouchableOpacity>
-      </KeyboardAvoidingView>
+      <View>
+        {/*Write a Task */}
+        <KeyboardAvoidingView
+          behavior={Platform.OS === "ios" ? "padding" : "height"}
+          style={styles.writeTaskWrapper}
+        >
+          <TextInput
+            style={styles.input}
+            placeholder={"Write A Task"}
+            value={task}
+            onChangeText={(text) => setTask(text)}
+          />
+          <TouchableOpacity onPress={() => handleAddTask()}>
+            <View style={styles.addWrapper}>
+              <Text style={styles.addText}>+</Text>
+            </View>
+          </TouchableOpacity>
+        </KeyboardAvoidingView>
+      </View>
     </View>
   );
 }
